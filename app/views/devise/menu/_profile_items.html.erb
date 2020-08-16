@@ -1,0 +1,11 @@
+<% if user_signed_in? && current_user.manager_profile.present? %>
+    <li class="nav-item active nav-link">
+        <%= link_to('My Profile', manager_profile_path(current_user.manager_profile.id)) %>
+    </li>
+<% elsif user_signed_in? && current_user.player_profile.present? %>
+    <li class="nav-item active nav-link">
+        <%= link_to('My Profile', player_profile_path(current_user.player_profile.id)) %>
+    </li>
+<% else %>
+    
+<% end %>

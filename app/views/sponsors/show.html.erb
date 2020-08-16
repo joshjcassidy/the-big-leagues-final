@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Placings:</strong>
+  <%= @sponsor.placings %>
+</p>
+
+<p>
+  <strong>Participants:</strong>
+  <%= @sponsor.participants %>
+</p>
+
+<p>
+  <strong>Tournaments:</strong>
+  <%= @sponsor.tournaments %>
+</p>
+
+<p>
+  <strong>Streamhours:</strong>
+  <%= @sponsor.streamHours %>
+</p>
+
+<p>
+  <strong>Minutesofvideo:</strong>
+  <%= @sponsor.minutesOfVideo %>
+</p>
+
+<%= link_to 'Edit', edit_sponsor_path(@sponsor) %> |
+<%= link_to 'Back', sponsors_path %>

@@ -1,0 +1,41 @@
+<div class="container-fluid p-3">
+    <div class="row border-bottom p-2">
+        <div class="col-sm">
+            <div class="row">
+                <div class="col-sm">
+                    <h1><%= @player_profile.playerTag %></h1>
+                </div>
+                <div class="col-sm text-right">
+                    <%= render "manage_or_edit_button" %>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <%= @player_profile.firstName %> <%= @player_profile.lastName %>
+                </div>
+                <div class="col-sm text-right">
+                    <p>Email: <%= @player_profile.user.email %></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row p-2">
+        <div class="col-sm">
+            <div class="card p-1">
+                <h6>Bio</h6>
+                <div class="card p-1">
+                    <p>Date of Birth: <%= @player_profile.dob %></p>
+                    <p class="text-capitalize"><%= @player_profile.country.name %></p>
+
+                    <%= @player_profile.bio %>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm">
+            <p>Twitter: <a href="https://twitter.com/<%= @player_profile.twitterHandle %>"><%= @player_profile.twitterHandle %></a></p>
+            <p>Twitch: <a href="https://twitch.tv/<%= @player_profile.twitchHandle %>"><%= @player_profile.twitchHandle %></a></p>
+
+            <%= render 'tweets' %>
+        </div>
+    </div>
+</div>

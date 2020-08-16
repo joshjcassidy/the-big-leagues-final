@@ -1,0 +1,25 @@
+<h3>Score how sponsorable you are!</h3>
+    <p>You have to put in a lot of work to become part of a team; Let's see how you're doing!</p>
+        
+    <p>All values to be taken from the past 60 days</p>
+
+    <%= form_tag "/validate" do %>
+            
+        Sum value of all tournament placings eg. 1st and 2nd would be 1+2<br />
+        <%= text_field_tag :placings %><br/><br/>
+
+        'Sum value of entrants in tournaments you have entered'<br />
+        <%= text_field_tag :participants %><br/><br/>
+        
+        Number of tournaments you have entered<br />
+        <%= text_field_tag :tournaments %><br/><br/>
+
+        Number of hours you have spent streaming<br />
+        <%= text_field_tag :streamHours %><br/><br/>
+
+        Number of minutes uploaded in total to YouTube (can include stream highlights but not VOD uploads)<br />
+        <%= text_field_tag :minutesOfVideo %><br/><br/>
+
+
+        <%= submit_tag "Calculate Your Score" %>
+    <% end %>

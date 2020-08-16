@@ -1,0 +1,30 @@
+<% if user_signed_in? %>
+    <% if current_user.managerCheck == true %>
+        <% if @player_profile.hasSponsor == true && @player_profile.manager_profile.user_id != current_user.id %>
+            <h5>This player is already part of a team</h5>
+        <% elsif @player_profile.hasSponsor == true && @player_profile.manager_profile.user_id == current_user.id %>
+            <%= form_for @player_profile, url: player_profile_path(@player_profile), method: :patch do |f| %>
+                    
+                <%= f.hidden_field :manager_profile_id, value: nil %>
+
+                <%= f.hidden_field :hasSponsor, value: false %>
+                
+                <div class="actions">
+                    <%= f.submit "Remove Player" %>
+                </div>
+            <% end %>
+        <% else %>
+            <%= form_for @player_profile, url: player_profile_path(@player_profile), method: :patch do |f| %>
+                <%= f.hidden_field :manager_profile_id, value: current_user.manager_profile.id %>
+
+                <%= f.hidden_field :hasSponsor, value: true %>
+                
+                <div class="actions">
+                    <%= f.submit "Add Player" %>
+                </div>
+            <% end %>
+        <% end %>
+    <% elsif @player_profile.user_id == current_user.id %> 
+        <%= button_to "Edit Profile", edit_player_profile_path(@player_profile), method: :get %>
+    <% end %>
+<% end %>

@@ -1,0 +1,9 @@
+<div class="border row">
+    <div class="column w-50">
+        <h3><%= @players.playerTag %></br></h3>
+        <p><%= @players.firstName %> <%= @players.lastName %></p>
+    </div>
+    <div class="column w-50">
+        <%= render 'player_profiles/tweets' %>
+    </div>
+</div>

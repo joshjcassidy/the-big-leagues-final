@@ -1,0 +1,18 @@
+<% require 'twitter' %>
+
+<div class="border-bottom float-none">
+    <h1>Welcome back to The Big Leagues!</h1>
+</div>
+
+<% PlayerProfile.where('manager_profile_id LIKE ?', current_user.manager_profile.id).each do |player| %>
+  <div class="border row">
+    <div class="column w-50">
+        <% @player_profile = player %>
+        <h3><%= @player_profile.playerTag %></br></h3>
+        <p><%= @player_profile.firstName %> <%= player.lastName %></p>
+    </div>
+    <div class="column w-50">
+        <%= render 'player_profiles/tweets' %>
+    </div>
+  </div>
+<% end %>
